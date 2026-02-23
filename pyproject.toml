@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "text2odp"
+version = "0.1.0"
+description = "Text2ODP: Generate Ontology Design Patterns from scientific abstracts"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Text2ODP Contributors"}]
+license = {text = "MIT"}
+dependencies = [
+  "requests>=2.32",
+  "tqdm>=4.66",
+  "python-dotenv>=1.0",
+  "tenacity>=8.3"
+]
+
+[project.optional-dependencies]
+llm = [
+  "transformers>=4.43",
+  "torch>=2.2",
+  "accelerate>=0.33",
+  "sentencepiece>=0.2"
+]
+api = ["openai>=1.46"]
+dev = ["pytest>=8.3", "ruff>=0.6", "mypy>=1.11"]
+
+[project.scripts]
+text2odp = "text2odp.cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+addopts = "-q"
