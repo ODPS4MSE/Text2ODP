@@ -17,6 +17,8 @@ class SemanticScholarCollector:
             "limit": limit,
             "fields": "title,abstract,year,venue",
         }
+        import requests
+
         response = requests.get(self.endpoint, params=params, timeout=60)
         response.raise_for_status()
         payload = response.json()

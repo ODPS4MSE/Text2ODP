@@ -25,6 +25,8 @@ class OllamaBackend(LLMBackend):
             "stream": False,
             "options": {"temperature": temperature, "num_predict": max_tokens},
         }
+        import requests
+
         response = requests.post(f"{self.endpoint}/api/generate", json=payload, timeout=180)
         response.raise_for_status()
         return response.json().get("response", "")

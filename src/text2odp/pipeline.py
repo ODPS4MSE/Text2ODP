@@ -4,6 +4,21 @@ import csv
 import json
 from pathlib import Path
 
+try:
+    from tenacity import retry, stop_after_attempt, wait_exponential
+except ImportError:  # pragma: no cover - fallback for minimal environments
+    def retry(*args, **kwargs):
+        def _decorator(func):
+            return func
+
+        return _decorator
+
+    def stop_after_attempt(_attempts):
+        return None
+
+    def wait_exponential(**_kwargs):
+        return None
+
 from tenacity import retry, stop_after_attempt, wait_exponential
 
 from .data import SemanticScholarCollector
