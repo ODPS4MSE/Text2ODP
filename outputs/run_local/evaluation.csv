@@ -1,0 +1,2 @@
+paper_id,lexical_coverage,graph_density,cq_answerability_proxy,self_consistency,notes
+demo-001,0.2,0.2,0.8,1.0,"Scores in [0,1]. High lexical coverage can be misleading for paraphrases; consider adding embedding-based metrics for publication-level evaluation."

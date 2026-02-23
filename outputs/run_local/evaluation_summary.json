@@ -1,0 +1,10 @@
+{
+  "lexical_coverage_mean": 0.2,
+  "lexical_coverage_std": 0.0,
+  "graph_density_mean": 0.2,
+  "graph_density_std": 0.0,
+  "cq_answerability_proxy_mean": 0.8,
+  "cq_answerability_proxy_std": 0.0,
+  "self_consistency_mean": 1.0,
+  "self_consistency_std": 0.0
+}

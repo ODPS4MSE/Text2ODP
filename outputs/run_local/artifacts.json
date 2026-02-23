@@ -1,0 +1,90 @@
+[
+  {
+    "paper": {
+      "paper_id": "demo-001",
+      "title": "Ontology Engineering for Clinical Pathways",
+      "abstract": "Clinical teams manage patients with treatments and outcomes across hospital workflows.",
+      "venue": "DemoConf",
+      "year": 2026,
+      "source": "semantic_scholar"
+    },
+    "scenario": {
+      "scenario": "A hospital tracks patients, treatments, and outcomes in care pathways.",
+      "competency_questions": [
+        "Which patient receives which treatment?",
+        "What outcomes are linked to a treatment?",
+        "Who records treatment events?",
+        "How are outcomes measured over time?",
+        "Which patient has adverse outcomes?"
+      ]
+    },
+    "graph": {
+      "concepts": [
+        "Patient",
+        "Treatment",
+        "Outcome",
+        "CarePathway",
+        "Hospital"
+      ],
+      "relations": [
+        "receives",
+        "hasOutcome",
+        "partOfPathway",
+        "recordedBy"
+      ],
+      "triples": [
+        [
+          "Patient",
+          "receives",
+          "Treatment"
+        ],
+        [
+          "Patient",
+          "hasOutcome",
+          "Outcome"
+        ],
+        [
+          "Treatment",
+          "partOfPathway",
+          "CarePathway"
+        ],
+        [
+          "Treatment",
+          "recordedBy",
+          "Hospital"
+        ]
+      ]
+    },
+    "odp": {
+      "pattern_name": "ClinicalPathwayOutcomePattern",
+      "intent": "Represent patients receiving treatments within pathways and producing outcomes.",
+      "classes": [
+        "Patient",
+        "Treatment",
+        "Outcome",
+        "CarePathway",
+        "Hospital"
+      ],
+      "object_properties": [
+        "receives",
+        "hasOutcome",
+        "partOfPathway",
+        "recordedBy"
+      ],
+      "axioms_manchester": [
+        "Patient SubClassOf receives some Treatment",
+        "Patient SubClassOf hasOutcome some Outcome",
+        "Treatment SubClassOf partOfPathway some CarePathway"
+      ],
+      "ttl_fragment": "@prefix ex: <http://example.org/> .\nex:Patient a owl:Class ."
+    },
+    "evaluation": {
+      "paper_id": "demo-001",
+      "lexical_coverage": 0.2,
+      "graph_density": 0.2,
+      "cq_answerability_proxy": 0.8,
+      "self_consistency": 1.0,
+      "notes": "Scores in [0,1]. High lexical coverage can be misleading for paraphrases; consider adding embedding-based metrics for publication-level evaluation."
+    }
+  }
+]
