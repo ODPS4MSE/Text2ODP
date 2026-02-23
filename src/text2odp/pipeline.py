@@ -19,6 +19,7 @@ except ImportError:  # pragma: no cover - fallback for minimal environments
     def wait_exponential(**_kwargs):
         return None
 
+from tenacity import retry, stop_after_attempt, wait_exponential
 
 from .data import SemanticScholarCollector
 from .evaluation import aggregate, evaluate
